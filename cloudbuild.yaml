@@ -24,7 +24,7 @@ steps:
       - 'us-central1-a'  # Zone where your cluster is located
 
   # Step 4: Apply Kubernetes deployment
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     id: 'Deploy to GKE'
     args:
       - 'kubectl'
@@ -33,7 +33,7 @@ steps:
       - 'kubernetes/app1.yaml'  # Path to your Kubernetes deployment YAML file
 
   # Step 5: Optionally, apply a Kubernetes service (if needed)
-#env:
+  #env:
    # - 'PROJECT_ID = fine-climber-412705'
 
 
