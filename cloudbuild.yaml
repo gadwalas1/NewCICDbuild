@@ -3,11 +3,11 @@ options:
 
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/${PROJECT_ID}/cicdtest/python-image:latest', './app1' ]
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/fine-climber-412705/cicdtest/python-image:latest', './app1' ]
   id: 'Build Docker Image'
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/${PROJECT_ID}/cicdtest/python-image:latest' ]
+  args: ['push', 'us-central1-docker.pkg.dev/fine-climber-412705/cicdtest/python-image:latest' ]
   id: 'Push Docker Image'
 
   #images:
@@ -34,7 +34,7 @@ steps:
   #  gcloud deploy apply --file deploy/pipeline.yaml --region=us-central1
    # gcloud deploy apply --file deploy/dev.yaml --region=us-central1
    # gcloud deploy releases create 'app-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-pipeline --region=us-central1 --skaffold-file=skaffold.yaml
-env:
-    - 'PROJECT_ID = fine-climber-412705'
+#env:
+   # - 'PROJECT_ID = fine-climber-412705'
 
 
