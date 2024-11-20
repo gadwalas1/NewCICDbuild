@@ -9,12 +9,9 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/fine-climber-412705/cicd2/python-image:latest' ]
   id: 'Push Docker Image'
-
-  #images:
-   #- 'us-central1-docker.pkg.dev/${PROJECT_ID}/cicdtest/python-image:latest'
- - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    id: 'Get GKE credentials'
-    args:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  id: 'Get GKE credentials'
+  args:
       - 'gcloud'
       - 'container'
       - 'clusters'
@@ -22,11 +19,9 @@ steps:
       - 'my-cluster'  # Name of your GKE cluster
       - '--zone'
       - 'us-central1-a'  # Zone where your cluster is located
-
-  # Step 4: Apply Kubernetes deployment
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    id: 'Deploy to GKE'
-    args:
+  id: 'Deploy to GKE'
+  args:
       - 'kubectl'
       - 'apply'
       - '-f'
