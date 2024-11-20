@@ -12,7 +12,7 @@ steps:
 
   #images:
    #- 'us-central1-docker.pkg.dev/${PROJECT_ID}/cicdtest/python-image:latest'
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+ - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     id: 'Get GKE credentials'
     args:
       - 'gcloud'
