@@ -26,6 +26,8 @@ steps:
       - 'apply'
       - '-f'
       - 'kubernetes/app1.yaml'  # Path to your Kubernetes deployment YAML file
+      - '-n'
+      - 'default'
 
   # Step 5: Optionally, apply a Kubernetes service (if needed)
   #env:
