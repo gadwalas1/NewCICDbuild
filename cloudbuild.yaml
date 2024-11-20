@@ -1,3 +1,6 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
+
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'us-central1-docker.pkg.dev/${PROJECT_ID}/cicdtest/python-image:latest', './app1' ]
@@ -35,5 +38,4 @@ steps:
     env:
       - 'PROJECT_ID = fine-climber-412705'
 
-options:
-  logging: CLOUD_LOGGING_ONLY
+
