@@ -12,28 +12,27 @@ steps:
 
   #images:
    #- 'us-central1-docker.pkg.dev/${PROJECT_ID}/cicdtest/python-image:latest'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    id: 'Get GKE credentials'
+    args:
+      - 'gcloud'
+      - 'container'
+      - 'clusters'
+      - 'get-credentials'
+      - 'my-cluster'  # Name of your GKE cluster
+      - '--zone'
+      - 'us-central1-a'  # Zone where your cluster is located
 
-#- name: 'gcr.io/cloud-builders/docker'
- # args: ['build', '-t', 'us-central1-docker.pkg.dev/${PROJECT_ID}/gke-repo/flask-image', './app2' ]
-  #id: 'Build Docker Image2'
+  # Step 4: Apply Kubernetes deployment
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    id: 'Deploy to GKE'
+    args:
+      - 'kubectl'
+      - 'apply'
+      - '-f'
+      - 'kubernetes/app1.yaml'  # Path to your Kubernetes deployment YAML file
 
-  # images:
-  # - 'us-central1-docker.pkg.dev/${PROJECT_ID}/gke-repo/quickstart-image'
-
-#- name: 'gcr.io/cloud-builders/docker'
-  #args: ['push', 'us-central1-docker.pkg.dev/${PROJECT_ID}/gke-repo/flask-image' ]
- # id: 'Push Docker Image2'
-
-
-#- name: 'google/cloud-sdk:latest'
- # entrypoint: 'sh'
- # args:
- # - -xe
- # - -c
- # - |
-  #  gcloud deploy apply --file deploy/pipeline.yaml --region=us-central1
-   # gcloud deploy apply --file deploy/dev.yaml --region=us-central1
-   # gcloud deploy releases create 'app-release-${SHORT_SHA}' --delivery-pipeline=gke-cicd-pipeline --region=us-central1 --skaffold-file=skaffold.yaml
+  # Step 5: Optionally, apply a Kubernetes service (if needed)
 #env:
    # - 'PROJECT_ID = fine-climber-412705'
 
