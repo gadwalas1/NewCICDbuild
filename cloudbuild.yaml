@@ -10,8 +10,8 @@ steps:
   args: ['push', 'us-central1-docker.pkg.dev/${PROJECT_ID}/cicdtest/python-image:latest' ]
   id: 'Push Docker Image'
 
-  images:
-   - 'us-central1-docker.pkg.dev/${PROJECT_ID}/cicdtest/python-image:latest'
+  #images:
+   #- 'us-central1-docker.pkg.dev/${PROJECT_ID}/cicdtest/python-image:latest'
 
 #- name: 'gcr.io/cloud-builders/docker'
  # args: ['build', '-t', 'us-central1-docker.pkg.dev/${PROJECT_ID}/gke-repo/flask-image', './app2' ]
