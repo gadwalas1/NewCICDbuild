@@ -1,5 +1,5 @@
-options:
-  logging: CLOUD_LOGGING_ONLY
+#options:
+ # logging: CLOUD_LOGGING_ONLY
 
 steps:
 - name: 'gcr.io/cloud-builders/docker'
@@ -9,25 +9,25 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/fine-climber-412705/cicd2/python-image:latest' ]
   id: 'Push Docker Image'
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  id: 'Get GKE credentials'
-  args:
-      - 'gcloud'
-      - 'container'
-      - 'clusters'
-      - 'get-credentials'
-      - 'my-cluster'  # Name of your GKE cluster
-      - '--zone'
-      - 'us-central1-a'  # Zone where your cluster is located
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  id: 'Deploy to GKE'
-  args:
-      - 'kubectl'
-      - 'apply'
-      - '-f'
-      - 'kubernetes/app1.yaml'  # Path to your Kubernetes deployment YAML file
-      - '-n'
-      - 'default'
+#- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  #id: 'Get GKE credentials'
+#  args:
+#      - 'gcloud'
+#      - 'container'
+ #     - 'clusters'
+  #    - 'get-credentials'
+ #     - 'my-cluster'  # Name of your GKE cluster
+   #   - '--zone'
+   #   - 'us-central1-a'  # Zone where your cluster is located
+#- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+ # id: 'Deploy to GKE'
+ # args:
+ #     - 'kubectl'
+  #    - 'apply'
+  #    - '-f'
+   #   - 'kubernetes/app1.yaml'  # Path to your Kubernetes deployment YAML file
+    #  - '-n'
+    #  - 'default'
 
   # Step 5: Optionally, apply a Kubernetes service (if needed)
   #env:
