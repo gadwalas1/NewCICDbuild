@@ -1,10 +1,13 @@
 #options:
- # logging: CLOUD_LOGGING_ONLY
+#  logging: CLOUD_LOGGING_ONLY
 
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'us-central1-docker.pkg.dev/fine-climber-412705/cicd2/python-image:latest', './app1' ]
   id: 'Build Docker Image'
+logsBucket: 'gs://mylogsbucket1' 
+options:
+  logging: CLOUD_LOGGING_ONLY
 
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/fine-climber-412705/cicd2/python-image:latest' ]
