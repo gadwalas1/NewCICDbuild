@@ -8,11 +8,11 @@ steps:
   args: ['push', 'us-central1-docker.pkg.dev/fine-climber-412705/cicd2/python-image:latest' ]
   id: 'Push Docker Image'
   # Save test logs to Google Cloud Storage
-artifacts:
-  objects:
-    location: gs://mylogsbucket1/source/
-    paths:
-      - latest_test_log.tgz
+#artifacts:
+#  objects:
+ #   location: gs://mylogsbucket1/source/
+ #   paths:
+ #     - latest_test_log.tgz
 
 
       
