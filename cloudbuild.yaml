@@ -1,6 +1,5 @@
 options:
   logging: GCS_ONLY
-
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'us-central1-docker.pkg.dev/fine-climber-412705/cicd2/python-image:latest', './app1' ]
@@ -9,6 +8,15 @@ logsBucket: 'gs://mylogsbucket1'
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-central1-docker.pkg.dev/fine-climber-412705/cicd2/python-image:latest' ]
   id: 'Push Docker Image'
+  # Save test logs to Google Cloud Storage
+artifacts:
+  objects:
+    location: gs://mylogsbucket1/
+    paths:
+      - latest_test_log.xml
+
+
+      
 #- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   #id: 'Get GKE credentials'
 #  args:
