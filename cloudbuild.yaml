@@ -10,9 +10,9 @@ steps:
   # Save test logs to Google Cloud Storage
 artifacts:
   objects:
-    location: gs://mylogsbucket1/
+    location: gs://mylogsbucket1/source/
     paths:
-      - latest_test_log.xml
+      - latest_test_log.tgz
 
 
       
